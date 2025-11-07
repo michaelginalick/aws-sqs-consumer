@@ -12,9 +12,9 @@ When using SQS as a Lambda event source, Lambda functions are triggered with a b
 
 If your Lambda function fails to process any message from the batch, the entire batch returns to your SQS.
 This same batch is then retried until either condition happens first:
- - Your Lambda function returns a successful response.
- - Record reaches maximum retry attempts.
- - When records expire.
+  - Your Lambda function returns a successful response.
+  - Record reaches maximum retry attempts.
+  - When records expire.
 
 With this batch processor, batch records are processed individually - only messages that failed to be processed
 return to SQS for further retry. This is done via [events.SQSEventResponse.BatchItemFailures].

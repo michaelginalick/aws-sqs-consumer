@@ -7,7 +7,6 @@ import (
 
 // Taken from https://www.alexedwards.net/blog/the-9-go-test-assertions-i-use
 
-
 func Equal[T any](t *testing.T, got, want T) {
 	t.Helper()
 	if !isEqual(got, want) {
