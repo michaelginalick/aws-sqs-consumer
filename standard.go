@@ -41,7 +41,7 @@ func handleStandardConcurrently(ctx context.Context, handler HandleMessageFunc, 
 	for failure := range ch {
 		response.BatchItemFailures = append(response.BatchItemFailures, failure)
 	}
-	return response, ctx.Err()
+	return response, nil
 }
 
 func handleStandard(ctx context.Context, handler HandleMessageFunc, event events.SQSEvent) (events.SQSEventResponse, error) {
@@ -58,5 +58,5 @@ func handleStandard(ctx context.Context, handler HandleMessageFunc, event events
 		}
 
 	}
-	return response, ctx.Err()
+	return response, nil
 }

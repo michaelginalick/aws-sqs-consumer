@@ -9,7 +9,7 @@ AWS-SQS-Consumer is a small, flexible library that normalizes how your applicati
 
 ### About
 
-The `aws-sqs-consumer` package provides support for both Standard and FIFO SQS queues.
+The `awssqsconsumer` package provides support for both Standard and FIFO SQS queues.
 [Standard] and [FIFO] accept an interface that provides the function [HandleMessage] to invoke on each message
 and a function [WithConcurrentExecution] that indicates if the batch should be processed concurrently.
 
@@ -26,7 +26,7 @@ With this batch processor, batch records are processed individually - only messa
 
 ## Features
 
-**aws-sqs-consumer** is a flexible, lightweight package for processing SQS messages in lambda applications.
+**awssqsconsumer** is a flexible, lightweight package for processing SQS messages in lambda applications.
 It is able to process both [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) and [Standard](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html) queues. It also provides the option to process both queue types using lock free concurrency.
 
 ## Usage
