@@ -1,5 +1,10 @@
 # AWS SQS Consumer
 
+[![test](https://github.com/michaelginalick/aws-sqs-consumer/actions/workflows/test.yml/badge.svg)](https://github.com/michaelginalick/aws-sqs-consumer/actions/workflows/test.yml) 
+[![Go Report Card](https://goreportcard.com/badge/github.com/michaelginalick/aws-sqs-consumer)](https://goreportcard.com/report/github.com/michaelginalick/aws-sqs-consumer) 
+[![GoDoc](https://godoc.org/github.com/michaelginalick/aws-sqs-consumer?status.svg)](https://godoc.org/github.com/michaelginalick/aws-sqs-consumer)
+
+
 AWSSQSConsumer is a small, flexible library that normalizes your application consumes [AWS SQS messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html). It handles a batch of SQS messages by accepting a user-defined function capable of handling a single message.
 
 ### About
