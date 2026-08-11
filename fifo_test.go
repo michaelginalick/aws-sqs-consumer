@@ -8,16 +8,18 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	awssqsconsumer "github.com/michaelginalick/aws-sqs-consumer"
-	assert "github.com/michaelginalick/aws-sqs-consumer/internal"
+	assert "github.com/michaelginalick/aws-sqs-consumer/internal/assert"
 )
 
 func sortItems(items events.SQSEventResponse) []events.SQSBatchItemFailure {
-	sort.Slice(items.BatchItemFailures, func(i, j int) bool {
-		id1, _ := strconv.Atoi(items.BatchItemFailures[i].ItemIdentifier)
-		id2, _ := strconv.Atoi(items.BatchItemFailures[j].ItemIdentifier)
+	cp := make([]events.SQSBatchItemFailure, len(items.BatchItemFailures))
+	copy(cp, items.BatchItemFailures)
+	sort.Slice(cp, func(i, j int) bool {
+		id1, _ := strconv.Atoi(cp[i].ItemIdentifier)
+		id2, _ := strconv.Atoi(cp[j].ItemIdentifier)
 		return id1 < id2
 	})
-	return items.BatchItemFailures
+	return cp
 }
 
 type nonConcurrentFIFO struct{}

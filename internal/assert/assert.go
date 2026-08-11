@@ -1,4 +1,4 @@
-package internal
+package assert
 
 import (
 	"reflect"
@@ -7,6 +7,7 @@ import (
 
 // Taken from https://www.alexedwards.net/blog/the-9-go-test-assertions-i-use
 
+// Equal reports a test failure if got and want are not deeply equal.
 func Equal[T any](t *testing.T, got, want T) {
 	t.Helper()
 	if !isEqual(got, want) {
@@ -14,6 +15,7 @@ func Equal[T any](t *testing.T, got, want T) {
 	}
 }
 
+// Nil reports a test failure if got is not nil.
 func Nil(t *testing.T, got any) {
 	t.Helper()
 	if !isNil(got) {
