@@ -6,7 +6,7 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	awssqsconsumer "github.com/michaelginalick/aws-sqs-consumer"
-	assert "github.com/michaelginalick/aws-sqs-consumer/internal"
+	assert "github.com/michaelginalick/aws-sqs-consumer/internal/assert"
 )
 
 type nonConcurrentStandard struct{}
@@ -159,7 +159,7 @@ func TestStandard(t *testing.T) {
 	t.Run("Non-Concurrent", func(t *testing.T) {
 		for _, tt := range tests {
 			t.Run(tt.name, func(t *testing.T) {
-				got, err := awssqsconsumer.FIFO(context.Background(), tt.nonConcurrenthandler, tt.event)
+				got, err := awssqsconsumer.Standard(context.Background(), tt.nonConcurrenthandler, tt.event)
 				assert.Nil(t, err)
 				assert.Equal(t, tt.want, got)
 			})
